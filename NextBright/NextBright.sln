@@ -1,11 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2017
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NextBright", "NextBright.csproj", "{0103768B-0FCC-1C56-8D1B-7AEEDCE4EFD6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PuppetBehaviours", "GeneralLib\PuppetBehaviours.csproj", "{2A84FEB5-E487-4B15-9A5A-D5D1300C017F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPGLogicBase", "RPGBaseData\RPGLogicBase.csproj", "{08EC65F3-2CD3-471E-A77F-E9FFC6B88C0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPGLogicBaseTests", "RPGBaseTests\RPGLogicBaseTests.csproj", "{ADEE968E-8013-4A7A-B981-18A77E218CE5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Puppet.Test", "GeneralLibTests1\Puppet.Test.csproj", "{A17611F3-DEC7-4BAE-A223-2559DF58AB23}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,8 +31,19 @@ Global
 		{08EC65F3-2CD3-471E-A77F-E9FFC6B88C0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08EC65F3-2CD3-471E-A77F-E9FFC6B88C0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08EC65F3-2CD3-471E-A77F-E9FFC6B88C0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADEE968E-8013-4A7A-B981-18A77E218CE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADEE968E-8013-4A7A-B981-18A77E218CE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADEE968E-8013-4A7A-B981-18A77E218CE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADEE968E-8013-4A7A-B981-18A77E218CE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A17611F3-DEC7-4BAE-A223-2559DF58AB23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A17611F3-DEC7-4BAE-A223-2559DF58AB23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A17611F3-DEC7-4BAE-A223-2559DF58AB23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A17611F3-DEC7-4BAE-A223-2559DF58AB23}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D370E073-4ED8-4BE0-8CFE-1DBF1DFE953F}
 	EndGlobalSection
 EndGlobal
