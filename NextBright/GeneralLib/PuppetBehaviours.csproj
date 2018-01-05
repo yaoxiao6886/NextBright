@@ -56,9 +56,8 @@
     <Compile Include="Puppet\Puppet.cs" />
     <Compile Include="Puppet\InternalEvents\RequirePos.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\..\RPGBaseData\RPGLogicBase.csproj">
+    <ProjectReference Include="..\RPGBaseData\RPGLogicBase.csproj">
       <Project>{08ec65f3-2cd3-471e-a77f-e9ffc6b88c0a}</Project>
       <Name>RPGLogicBase</Name>
     </ProjectReference>

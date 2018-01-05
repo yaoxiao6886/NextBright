@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2010
-MinimumVisualStudioVersion = 10.0.40219.1
+# Visual Studio 2017
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NextBright", "NextBright.csproj", "{0103768B-0FCC-1C56-8D1B-7AEEDCE4EFD6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PuppetBehaviours", "GeneralLib\PuppetBehaviours.csproj", "{2A84FEB5-E487-4B15-9A5A-D5D1300C017F}"
@@ -30,8 +28,5 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {CBCD0CAE-986C-4C70-8D5F-E51F0CF02B96}
 	EndGlobalSection
 EndGlobal
