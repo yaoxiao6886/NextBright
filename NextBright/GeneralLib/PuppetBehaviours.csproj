@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2A84FEB5-E487-4B15-9A5A-D5D1300C017F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GeneralLib</RootNamespace>
+    <AssemblyName>GeneralLib</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DemisionalBehaviours\AnimBehaviours\IV_BeginWalk.cs" />
+    <Compile Include="DemisionalBehaviours\DimentionEnum.cs" />
+    <Compile Include="EngineInterfaces\IAnimControl.cs" />
+    <Compile Include="EngineInterfaces\IPlayerModelStructs.cs" />
+    <Compile Include="Factory\Directors\BuildDirector.cs" />
+    <Compile Include="Factory\PartBuilders\BehavioursBuilder.cs" />
+    <Compile Include="DemisionalBehaviours\AnimBehaviours\PlayerAnimBehaviour.cs" />
+    <Compile Include="Factory\PartBuilders\RPGPlayerBehavioursBuilder.cs" />
+    <Compile Include="DemisionalBehaviours\DimentionalBahaviour.cs" />
+    <Compile Include="DemisionalBehaviours\PlayerPosBehaviour.cs" />
+    <Compile Include="Factory\Directors\PlayerDirector.cs" />
+    <Compile Include="Factory\PlayerFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Puppet\Player.cs" />
+    <Compile Include="Puppet\Puppet.cs" />
+    <Compile Include="Puppet\InternalEvents\RequirePos.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\RPGBaseData\RPGLogicBase.csproj">
+      <Project>{08ec65f3-2cd3-471e-a77f-e9ffc6b88c0a}</Project>
+      <Name>RPGLogicBase</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy $(TargetPath) $(SolutionDir)Assets\Plugins\$(TargetFileName)
+copy $(TargetDir)$(TargetName).pdb $(SolutionDir)Assets\plugins\$(TargetName).pdb</PostBuildEvent>
+  </PropertyGroup>
+</Project>
