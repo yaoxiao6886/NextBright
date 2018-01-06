@@ -5,23 +5,39 @@ using UnityEngine;
 
 public class Driver : MonoBehaviour {
     private Player player;
+    PlayerStructs playerStruct;
 
+    float targetTime = 0;
     void Start () {
-        player = PlayerFactory.CreateRPGPlayer(GetComponent<PlayerStructs>()); // new Player( GetComponent<PosImplementation>() );
+        playerStruct = GetComponent<PlayerStructs>();
+        player = PlayerFactory.CreateRPGPlayer(playerStruct); // new Player( GetComponent<PosImplementation>() );
+
+        targetTime = Time.realtimeSinceStartup + Random.Range(0, 5f);
     }
-	
-	// Update is called once per frame
+
+    // Update is called once per frame
+
+    float x = 0;
+    float y = 0;
+    public float speed = 1;
 	void Update () {
-        player.Move( new RPGLogicBase.GridPosF() { X = Random.Range(0,10), Y = Random.Range(0,10) });
-        Try(new TestA());
-    }
 
-    interface C { }
-    struct TestA : C {
 
-    }
+        if (Input.GetKey(KeyCode.W)) {
+            x += speed * Time.deltaTime;
+        } else if (Input.GetKey(KeyCode.S)) {
+            x -= speed * Time.deltaTime;
+        } else if (Input.GetKey(KeyCode.A)) {
+            y -= speed * Time.deltaTime;
+        } else if (Input.GetKey(KeyCode.D)) {
+            y += speed * Time.deltaTime;
+        }
 
-    void Try<T>(T c) where T:C {
+        if (Time.realtimeSinceStartup > targetTime) {
+            targetTime = float.MaxValue;
+            playerStruct.animControl.SetAnim( transform.FindChild("bodyctrl").GetComponent<Animation>() );
+        }
 
+        player.MoveTo(new RPGLogicBase.GridPosF() { X =y, Y = x });
     }
 }

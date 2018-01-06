@@ -262,6 +262,12 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
+    <Reference Include="GeneralLib">
+      <HintPath>Assets/plugins/GeneralLib.dll</HintPath>
+    </Reference>
+    <Reference Include="RPGBaseData">
+      <HintPath>Assets/plugins/RPGBaseData.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.Advertisements">
       <HintPath>C:/Users/LBS/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/UnityEngine.Advertisements.dll</HintPath>
     </Reference>
@@ -283,12 +289,12 @@
     <Reference Include="UnityEngine.StandardEvents">
       <HintPath>C:/Users/LBS/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
     </Reference>
-    <Reference Include="RPGBaseData">
-      <HintPath>Assets/plugins/RPGBaseData.dll</HintPath>
-    </Reference>
-    <Reference Include="GeneralLib">
-      <HintPath>Assets/plugins/GeneralLib.dll</HintPath>
-    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="NextBright.Plugins.csproj">
+      <Project>{EF69873C-159E-6C99-1FD5-6F253D31A71E}</Project>
+      <Name>NextBright.Plugins</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\DimensionImplementation\PosImplementation.cs" />

@@ -13,7 +13,7 @@ public class PosImplementation : MonoBehaviour, IPosControl
 
     public void SetPos(GridPosF pos)
     {
-        transform.position = new Vector3(pos.X, pos.Y, transform.position.z);
+        transform.position = new Vector3(pos.X, transform.position.y, pos.Y);
     }
     
 }

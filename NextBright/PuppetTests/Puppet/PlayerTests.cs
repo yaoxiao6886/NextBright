@@ -33,7 +33,7 @@ namespace PuppetBehaviours.Tests
 
             public IAnimControl GetAnimControl()
             {
-                throw new NotImplementedException();
+                return null;
             }
 
             public IPosControl GetPosControl()
@@ -48,7 +48,7 @@ namespace PuppetBehaviours.Tests
             PlayerStructs stru = new PlayerStructs();
             Player player = PlayerFactory.CreateRPGPlayer(stru);
 
-            player.Move( new GridPosF() { X = 6, Y=6 });
+            player.MoveTo( new GridPosF() { X = 6, Y=6 });
 
             Assert.AreEqual(6, stru.pos.lastPos.X);
             Assert.AreEqual(6, stru.pos.lastPos.Y);

@@ -14,10 +14,10 @@ namespace PuppetBehaviours
 
         public override void OnRegisteEvent(Eventer eventer)
         {
-            eventer.RegisteEvent<IV_BeginWalk>( OnBeginWalk );
+            eventer.RegisteEvent<IE_MovePos>( OnBeginWalk );
         }
 
-        private void OnBeginWalk(IV_BeginWalk obj)
+        private void OnBeginWalk(IE_MovePos obj)
         {
             animControl.PlayAnim("walk");
         }

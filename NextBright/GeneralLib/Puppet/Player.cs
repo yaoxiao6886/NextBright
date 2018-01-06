@@ -27,10 +27,13 @@ namespace PuppetBehaviours
         /// 移动接口, 移动到指定位置
         /// </summary>
         /// <param name="pos"></param>
-        public void Move(GridPosF pos)
+        public void MoveTo(GridPosF pos)
         {
             Base_NotifyEvent<IE_MovePos>(new IE_MovePos() { Pos = pos });
         }
         
+        public void MoveRef(GridPosF pos) {
+
+        }
     }
 }

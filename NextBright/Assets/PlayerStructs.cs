@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using PuppetBehaviours;
 using RPGLogicBase;
+using System;
 
 public class PlayerStructs : MonoBehaviour, IPlayerStructs
 {
     IPosControl control = null;
-    IAnimControl animControl = new AnimProxy();
+    public AnimProxy animControl = new AnimProxy();
 
     private void Awake()
     {
@@ -20,6 +21,10 @@ public class PlayerStructs : MonoBehaviour, IPlayerStructs
     public IAnimControl GetAnimControl()
     {
         return animControl;
+    }
+
+    void Update() {
+        animControl.Flush();
     }
 }
 
@@ -45,5 +50,10 @@ public class AnimProxy : IAnimControl
         if (needFlush && anim != null) {
             anim.CrossFade(targetAnim);
         }
+    }
+
+    internal void SetAnim(Animation transform)
+    {
+        anim = transform;
     }
 }
