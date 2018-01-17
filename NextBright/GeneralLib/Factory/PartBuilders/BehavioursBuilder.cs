@@ -7,6 +7,6 @@ namespace PuppetBehaviours
 {
     internal interface IBehavioursBuilder
     {
-        void SetBehaviours(Dictionary<DimentionEnum, DimentionalBahaviour> dict);
+        void SetBehaviours(Dictionary<DimentionEnum, DimentionalBehaviour> dict);
     }
 }

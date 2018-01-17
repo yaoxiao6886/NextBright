@@ -1,4 +1,5 @@
-﻿using RPGLogicBase;
+﻿using RPGBaseData;
+using RPGLogicBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,13 +18,14 @@ namespace PuppetBehaviours
         /// <summary>
         /// 木偶身上现有的维度行为
         /// </summary>
-        Dictionary< DimentionEnum, DimentionalBahaviour> behaviourList = new Dictionary<DimentionEnum, DimentionalBahaviour>();
+        Dictionary< DimentionEnum, DimentionalBehaviour> behaviourList = new Dictionary<DimentionEnum, DimentionalBehaviour>();
 
-        public Puppet(Dictionary<DimentionEnum, DimentionalBahaviour> list)
+        public Puppet(Dictionary<DimentionEnum, DimentionalBehaviour> list)
         {
             this.behaviourList = list;
 
             RegisteEvents();
+
         }
 
         /// <summary>
@@ -42,6 +44,9 @@ namespace PuppetBehaviours
             }
             //木偶注册关心事件
             DefineCareEvents(eventer);
+
+            //注册FrameEvent
+            DefineGameLoopInterfaces( GameLoopTrigger.inst );
         }
         
 
@@ -51,12 +56,14 @@ namespace PuppetBehaviours
         /// <param name="eventer"></param>
         protected abstract void DefineCareEvents(Eventer eventer);
 
+        protected abstract void DefineGameLoopInterfaces( GameLoopTrigger eventer );
+
 
         /// <summary>
         /// 初始化调用组件行为
         /// </summary>
         /// <param name="bah"></param>
-        void InitBehvaiour(DimentionalBahaviour bah) {
+        void InitBehvaiour(DimentionalBehaviour bah) {
             //注册事件
             bah.RegisteEvent(eventer);
         }

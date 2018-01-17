@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2017
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NextBright", "NextBright.csproj", "{0103768B-0FCC-1C56-8D1B-7AEEDCE4EFD6}"
-EndProject
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NextBright.Plugins", "NextBright.Plugins.csproj", "{EF69873C-159E-6C99-1FD5-6F253D31A71E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NextBright", "NextBright.csproj", "{0103768B-0FCC-1C56-8D1B-7AEEDCE4EFD6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PuppetBehaviours", "GeneralLib\PuppetBehaviours.csproj", "{2A84FEB5-E487-4B15-9A5A-D5D1300C017F}"
 EndProject
@@ -13,20 +15,24 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPGLogicBaseTests", "RPGBas
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PuppetBehavioursTests", "PuppetTests\PuppetBehavioursTests.csproj", "{9491500F-5C96-486E-B40E-C2CAA79ACDE6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityConnectPlugin", "..\UnityConnectPlugin\UnityConnectPlugin.csproj", "{864053EE-C57A-47FD-AA09-5D93D1E3D878}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniRx", "UniRx\UniRx.csproj", "{D985FF85-37C3-45EF-9974-14A5321B990C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0103768B-0FCC-1C56-8D1B-7AEEDCE4EFD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0103768B-0FCC-1C56-8D1B-7AEEDCE4EFD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0103768B-0FCC-1C56-8D1B-7AEEDCE4EFD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0103768B-0FCC-1C56-8D1B-7AEEDCE4EFD6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EF69873C-159E-6C99-1FD5-6F253D31A71E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EF69873C-159E-6C99-1FD5-6F253D31A71E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF69873C-159E-6C99-1FD5-6F253D31A71E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF69873C-159E-6C99-1FD5-6F253D31A71E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0103768B-0FCC-1C56-8D1B-7AEEDCE4EFD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0103768B-0FCC-1C56-8D1B-7AEEDCE4EFD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0103768B-0FCC-1C56-8D1B-7AEEDCE4EFD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0103768B-0FCC-1C56-8D1B-7AEEDCE4EFD6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2A84FEB5-E487-4B15-9A5A-D5D1300C017F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2A84FEB5-E487-4B15-9A5A-D5D1300C017F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A84FEB5-E487-4B15-9A5A-D5D1300C017F}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -43,8 +49,19 @@ Global
 		{9491500F-5C96-486E-B40E-C2CAA79ACDE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9491500F-5C96-486E-B40E-C2CAA79ACDE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9491500F-5C96-486E-B40E-C2CAA79ACDE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{864053EE-C57A-47FD-AA09-5D93D1E3D878}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{864053EE-C57A-47FD-AA09-5D93D1E3D878}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{864053EE-C57A-47FD-AA09-5D93D1E3D878}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{864053EE-C57A-47FD-AA09-5D93D1E3D878}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D985FF85-37C3-45EF-9974-14A5321B990C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D985FF85-37C3-45EF-9974-14A5321B990C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D985FF85-37C3-45EF-9974-14A5321B990C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D985FF85-37C3-45EF-9974-14A5321B990C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0A52AA98-3347-4F79-9DDE-97DCE497D532}
 	EndGlobalSection
 EndGlobal

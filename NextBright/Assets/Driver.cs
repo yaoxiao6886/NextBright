@@ -7,11 +7,13 @@ public class Driver : MonoBehaviour {
     private Player player;
     PlayerStructs playerStruct;
 
+    UpdateImplementation implementation = new UpdateImplementation();
+    TimeImplementation timeImplmentation = new TimeImplementation();
+    
     float targetTime = 0;
     void Start () {
         playerStruct = GetComponent<PlayerStructs>();
-        player = PlayerFactory.CreateRPGPlayer(playerStruct); // new Player( GetComponent<PosImplementation>() );
-
+        player = PlayerFactory.CreateRPGPlayer(playerStruct); 
         targetTime = Time.realtimeSinceStartup + Random.Range(0, 5f);
     }
 
@@ -21,7 +23,6 @@ public class Driver : MonoBehaviour {
     float y = 0;
     public float speed = 1;
 	void Update () {
-
 
         if (Input.GetKey(KeyCode.W)) {
             x += speed * Time.deltaTime;
@@ -35,9 +36,9 @@ public class Driver : MonoBehaviour {
 
         if (Time.realtimeSinceStartup > targetTime) {
             targetTime = float.MaxValue;
-            playerStruct.animControl.SetAnim( transform.FindChild("bodyctrl").GetComponent<Animation>() );
+            playerStruct.animControl.SetAnim( transform.Find("bodyctrl").GetComponent<Animation>() );
         }
 
-        player.MoveTo(new RPGLogicBase.GridPosF() { X =y, Y = x });
+        player.MoveTo(new RPGLogicBase.Vector2() { x =y, y = x });
     }
 }

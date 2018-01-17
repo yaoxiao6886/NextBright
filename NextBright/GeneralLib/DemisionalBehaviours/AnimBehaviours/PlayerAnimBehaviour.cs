@@ -1,9 +1,10 @@
 ﻿using System;
+using RPGBaseData;
 using RPGLogicBase;
 
 namespace PuppetBehaviours
 {
-    internal class PlayerAnimBehaviour : DimentionalBahaviour
+    class PlayerAnimBehaviour : DimentionalBehaviour
     {
         private IAnimControl animControl;
 
@@ -12,9 +13,14 @@ namespace PuppetBehaviours
             this.animControl = animControl;
         }
 
-        public override void OnRegisteEvent(Eventer eventer)
+        protected override void OnRegisteEvent(Eventer eventer)
         {
             eventer.RegisteEvent<IE_MovePos>( OnBeginWalk );
+        }
+
+        protected override void OnRegisteGameLoopEvent(GameLoopTrigger trigger)
+        {
+
         }
 
         private void OnBeginWalk(IE_MovePos obj)

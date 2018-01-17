@@ -1,4 +1,5 @@
-﻿using RPGLogicBase;
+﻿using RPGBaseData;
+using RPGLogicBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace PuppetBehaviours
     /// </summary>
     public class Player : Puppet
     {
-        internal Player(Dictionary<DimentionEnum, DimentionalBahaviour> control) : base(control) {
+        internal Player(Dictionary<DimentionEnum, DimentionalBehaviour> control) : base(control) {
 
         }
         
@@ -27,13 +28,23 @@ namespace PuppetBehaviours
         /// 移动接口, 移动到指定位置
         /// </summary>
         /// <param name="pos"></param>
-        public void MoveTo(GridPosF pos)
+        public void MoveTo(RPGLogicBase.Vector2 pos)
         {
-            Base_NotifyEvent<IE_MovePos>(new IE_MovePos() { Pos = pos });
+            Base_NotifyEvent(new IE_MovePos() { Pos = pos });
         }
-        
-        public void MoveRef(GridPosF pos) {
 
+        /// <summary>
+        /// 注册
+        /// </summary>
+        /// <param name="eventer"></param>
+        protected override void DefineGameLoopInterfaces(GameLoopTrigger trigger)
+        {
+            trigger.RegisteUpdate(OnUpdate);
+        }
+
+        private void OnUpdate()
+        {
+            
         }
     }
 }

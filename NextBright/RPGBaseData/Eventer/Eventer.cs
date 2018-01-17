@@ -43,6 +43,5 @@ namespace RPGLogicBase
                     act(t);
                 }
             }
-
-     }
+    }
 }

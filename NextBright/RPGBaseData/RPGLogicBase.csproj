@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>RPGBaseData</RootNamespace>
     <AssemblyName>RPGBaseData</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,6 +30,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -43,10 +45,14 @@
   <ItemGroup>
     <Compile Include="DimentionAbstraction\PosControl.cs" />
     <Compile Include="Eventer\Eventer.cs" />
-    <Compile Include="Pattern\Singleton.cs" />
-    <Compile Include="Pos\GridPos.cs" />
+    <Compile Include="GameLoopController.cs" />
+    <Compile Include="Pos\Mathf.cs" />
+    <Compile Include="Pos\MathfInternal.cs" />
+    <Compile Include="Pos\Vector2.cs" />
     <Compile Include="Profiler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Pattern\StaticInstance.cs" />
+    <Compile Include="Pos\Time.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

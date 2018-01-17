@@ -6,18 +6,8 @@ using RPGLogicBase;
 
 namespace RPGLogicBase
 {
-    public abstract class Profiler 
+    public abstract class Profiler  : Singleton<Profiler>
     {
-        static Profiler inst = null;
-
-        public static void SetImplementation(Profiler p) {
-            inst = p;
-        }
-
-        public static Profiler GetInstance() {
-            return inst;
-        }
-
         protected abstract void OnStartSample(string name);
         protected abstract void OnEndSample();
 

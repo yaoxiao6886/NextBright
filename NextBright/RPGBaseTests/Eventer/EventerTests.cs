@@ -11,11 +11,8 @@ namespace RPGLogicBase.Tests
     [TestClass()]
     public class EventerTests
     {
-        /// <summary>
-        /// 测试正常的事件派发
-        /// </summary>
         [TestMethod]
-        public void TestSingleEvent()
+        public void 接收单一事件()
         {
             Eventer target = new Eventer();
             int result = 0;
@@ -26,12 +23,9 @@ namespace RPGLogicBase.Tests
             target.NotifyEvent<int>(1);
             Assert.AreEqual(1, result);
         }
-
-        /// <summary>
-        /// 测试多次注册时间派发
-        /// </summary>
+        
         [TestMethod]
-        public void TestMulitpleRegisteEvent()
+        public void 接收多次注册事件()
         {
             Eventer target = new Eventer();
             int result1 = 0;

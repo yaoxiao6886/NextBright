@@ -9,8 +9,8 @@ namespace PuppetBehaviours
     /// <summary>
     /// 
     /// </summary>
-    struct IE_MovePos
+    public  struct IE_MovePos
     {
-        public GridPosF Pos;
+        public Vector2 Pos;
     }
 }

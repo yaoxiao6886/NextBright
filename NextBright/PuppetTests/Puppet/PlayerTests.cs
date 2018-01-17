@@ -6,53 +6,44 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using RPGLogicBase;
-using RPGLogicBase;
+using PuppetTests.Puppet.PuppetTestBase;
+using RPGBaseTests.Tests;
 
 namespace PuppetBehaviours.Tests
 {
     [TestClass()]
-    public class PlayerTests
+    public class PlayerTests : PuppetTestBase
     {
-        class FakePos : IPosControl
-        {
-            public GridPosF lastPos;
-            public GridPosF GetPos()
-            {
-                return new GridPosF() { X = 1, Y = 1 };
-            }
+        #region 公用测试用基础
+        private TestStructs stru;
+        private Player player;
 
-            public void SetPos(GridPosF pos)
-            {
-                lastPos = pos;
-            }
+        /// <summary>
+        /// 初始化数据
+        /// </summary>
+        [TestInitialize()]
+        public void InitData()
+        {
+            stru = new TestStructs();
+            player = PlayerFactory.CreateRPGPlayer(stru);
         }
-
-        class PlayerStructs : IPlayerStructs
+        #endregion
+        
+        [TestMethod()]
+        public void 位置接入()
         {
-            public FakePos pos = new FakePos();
+            player.MoveTo( new Vector2() { x = 6, y=6 });
 
-            public IAnimControl GetAnimControl()
-            {
-                return null;
-            }
+            TestTime.SetTimeAndUpdate(100);
 
-            public IPosControl GetPosControl()
-            {
-                return pos;
-            }
+            Assert.AreEqual(6, stru.pos.GetPos().x);
+            Assert.AreEqual(6, stru.pos.GetPos().y);
         }
 
         [TestMethod()]
-        public void MoveToPosTest()
-        {
-            PlayerStructs stru = new PlayerStructs();
-            Player player = PlayerFactory.CreateRPGPlayer(stru);
-
-            player.MoveTo( new GridPosF() { X = 6, Y=6 });
-
-            Assert.AreEqual(6, stru.pos.lastPos.X);
-            Assert.AreEqual(6, stru.pos.lastPos.Y);
+        public void 动画接入() {
+            player.MoveTo(new Vector2() { x = 6, y = 6 });
+            Assert.AreEqual("walk", stru.anim.orderedName);
         }
-        
     }
 }

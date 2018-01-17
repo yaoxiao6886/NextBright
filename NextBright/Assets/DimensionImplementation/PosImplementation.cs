@@ -6,14 +6,13 @@ using UnityEngine;
 
 public class PosImplementation : MonoBehaviour, IPosControl
 {
-    public GridPosF GetPos()
+    public void SetPos(RPGLogicBase.Vector2 pos)
     {
-        return new GridPosF() { X = transform.position.x, Y = transform.position.y };
+        transform.position = new Vector3() { x = pos.x, y = pos.y };
     }
 
-    public void SetPos(GridPosF pos)
+    RPGLogicBase.Vector2 IPosControl.GetPos()
     {
-        transform.position = new Vector3(pos.X, transform.position.y, pos.Y);
+        return new RPGLogicBase.Vector2() { x = transform.position.x, y = transform.position.y };
     }
-    
 }

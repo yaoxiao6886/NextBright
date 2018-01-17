@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using RPGLogicBase;
+using RPGBaseData;
+using PuppetTests.Puppet.PuppetTestBase;
 
 namespace PuppetBehaviours.Tests
 {
@@ -13,16 +15,16 @@ namespace PuppetBehaviours.Tests
     /// 测试木偶
     /// </summary>
     [TestClass()]
-    public class PuppetTests
+    public class PuppetBasicTests
     {
         /// <summary>
         /// 测试用行为子类, 主要测试是否接收到事件
         /// </summary>
-        class TestBehave : DimentionalBahaviour
+        class TestBehave : DimentionalBehaviour
         {
             public int result;
 
-            public override void OnRegisteEvent(Eventer eventer)
+            protected override void OnRegisteEvent(Eventer eventer)
             {
                 eventer.RegisteEvent<int>( OnResult );
             }
@@ -36,6 +38,11 @@ namespace PuppetBehaviours.Tests
             {
                Base_NofityEvent<int>(2);
             }
+
+            protected override void OnRegisteGameLoopEvent(GameLoopTrigger trigger)
+            {
+
+            }
         }
 
         
@@ -48,9 +55,10 @@ namespace PuppetBehaviours.Tests
             public static TestBehave behav2 = new TestBehave();
             
 
-        public int result;
+            public int result;
+            public int calledTimes;
 
-            public TestPuppet() : base(new Dictionary<DimentionEnum, DimentionalBahaviour>()
+            public TestPuppet() : base(new Dictionary<DimentionEnum, DimentionalBehaviour>()
             {
                 { DimentionEnum.POS, behav1},
                 { DimentionEnum.ANIM, behav2}
@@ -68,15 +76,27 @@ namespace PuppetBehaviours.Tests
                     result = x;
                 });
             }
+            
+            protected override void DefineGameLoopInterfaces(GameLoopTrigger eventer)
+            {
+                eventer.RegisteUpdate(OnUpdate, 2);
+            }
+
+            void OnUpdate() {
+                calledTimes++;
+            }
         }
 
-        TestPuppet puppet = new TestPuppet();
+        TestPuppet puppet;
 
-        /// <summary>
-        /// 测试从外部发事件, 内部是否可以接收
-        /// </summary>
+        [TestInitialize()]
+        public void Init() {
+            PuppetTestUtils.Init();
+            puppet = new TestPuppet();
+        }
+
         [TestMethod()]
-        public void PuppetTest()
+        public void 外部发事件内部接收()
         {
             puppet.SendMsg();
 
@@ -84,18 +104,21 @@ namespace PuppetBehaviours.Tests
             Assert.AreEqual(1, TestPuppet.behav2.result);
             Assert.AreEqual(1, puppet.result);
         }
-
-        /// <summary>
-        /// 测试从内部发事件, 外部是否可以接收
-        /// </summary>
+        
         [TestMethod()]
-        public void PuppetTestFromInner()
+        public void 内部发事件外部接收()
         {
             TestPuppet.behav1.SendMsg();
 
             Assert.AreEqual(2, TestPuppet.behav1.result);
             Assert.AreEqual(2, TestPuppet.behav2.result);
             Assert.AreEqual(2, puppet.result);
+        }
+
+        [TestMethod()]
+        public void 刷帧接口检测() {
+            PuppetTestUtils.trigger.CallBack();
+            Assert.AreEqual(1, puppet.calledTimes);
         }
         
     }

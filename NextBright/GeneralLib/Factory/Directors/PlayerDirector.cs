@@ -19,7 +19,7 @@ namespace PuppetBehaviours
 
         public Player BuildPlayer( IBehavioursBuilder builder ) {
 
-            var dict = new Dictionary<DimentionEnum, DimentionalBahaviour>();
+            var dict = new Dictionary<DimentionEnum, DimentionalBehaviour>();
             builder.SetBehaviours( dict );
             Player p = new Player(dict);
             return p;

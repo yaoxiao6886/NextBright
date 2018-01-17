@@ -15,7 +15,7 @@ namespace PuppetBehaviours
             modelStruct = structs;
         }
 
-        public void SetBehaviours(Dictionary<DimentionEnum, DimentionalBahaviour> dict )
+        public void SetBehaviours(Dictionary<DimentionEnum, DimentionalBehaviour> dict )
         {
             dict.Add(DimentionEnum.POS, new PlayerPosBehaviour(modelStruct.GetPosControl()));
             dict.Add(DimentionEnum.ANIM, new PlayerAnimBehaviour(modelStruct.GetAnimControl()));

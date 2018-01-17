@@ -13,8 +13,8 @@ namespace RPGLogicBase
     /// </summary>
     public interface IPosControl
     {
-        GridPosF GetPos();
+        Vector2 GetPos();
 
-        void SetPos(GridPosF pos);
+        void SetPos(Vector2 pos);
     }
 }
