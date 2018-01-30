@@ -14,5 +14,6 @@ namespace UnityConnectPlugin
         TimeImplementation time = new TimeImplementation();
         UpdateImplementation updateImplementation = new UpdateImplementation();
         ProfilerImplementation profiler = new ProfilerImplementation();
+        LogImplementation log = new LogImplementation();
     }
 }

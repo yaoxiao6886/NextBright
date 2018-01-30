@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace RPGLogicBase
+namespace PuppetBehaviours
 {
     /// <summary>
     /// 基本位置控制接口

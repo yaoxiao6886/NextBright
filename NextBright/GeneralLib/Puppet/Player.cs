@@ -1,5 +1,4 @@
-﻿using RPGBaseData;
-using RPGLogicBase;
+﻿using RPGLogicBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,11 +16,23 @@ namespace PuppetBehaviours
         internal Player(Dictionary<DimentionEnum, DimentionalBehaviour> control) : base(control) {
 
         }
-        
+
+        Action<Vector2> callback;
 
         protected override void DefineCareEvents(Eventer eventer)
         {
+            eventer.RegisteEvent<IE_PosChanged>(OnPosChanged);
+        }
 
+        private void OnPosChanged(IE_PosChanged obj)
+        {
+            if (callback != null) {
+                callback(obj.pos);
+            }
+        }
+
+        public void SetPosChangedCallBack(Action<Vector2> callback) {
+            this.callback = callback;
         }
 
         /// <summary>
@@ -31,6 +42,14 @@ namespace PuppetBehaviours
         public void MoveTo(RPGLogicBase.Vector2 pos)
         {
             Base_NotifyEvent(new IE_MovePos() { Pos = pos });
+        }
+
+        /// <summary>
+        /// 通知组件变化速度
+        /// </summary>
+        /// <param name="targetSpeed"></param>
+        public void SpeedChange(float targetSpeed) {
+            Base_NotifyEvent(new IE_SpeedChange() { targetSpeed = targetSpeed });
         }
 
         /// <summary>

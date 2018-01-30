@@ -33,5 +33,18 @@ namespace PuppetBehaviours.Tests
             TestTime.SetTimeAndUpdate(2);
             Assert.AreEqual(pos, posBehaviour.posControl.GetPos() );
         }
+
+        [TestMethod()]
+        public void 频繁移动() {
+            float currTime = 0;
+            RPGLogicBase.Vector2 pos = new RPGLogicBase.Vector2() { x = 10, y = 0 };
+            while (currTime < 2) {
+                pos += new RPGLogicBase.Vector2(-0.01f, 0f);
+                initer.NotifyEvent(new IE_MovePos() { Pos = pos });
+                TestTime.SetTimeAndUpdate(currTime+=0.1f);
+            }
+
+            Assert.AreEqual(pos, posBehaviour.posControl.GetPos());
+        }
     }
 }

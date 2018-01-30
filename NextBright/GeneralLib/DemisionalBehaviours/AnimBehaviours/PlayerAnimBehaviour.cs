@@ -1,5 +1,4 @@
 ﻿using System;
-using RPGBaseData;
 using RPGLogicBase;
 
 namespace PuppetBehaviours
@@ -8,14 +7,29 @@ namespace PuppetBehaviours
     {
         private IAnimControl animControl;
 
+        Triggable<string> currentAnim;
+
         public PlayerAnimBehaviour(IAnimControl animControl)
         {
             this.animControl = animControl;
+            currentAnim = new Triggable<string>("stand", OnAnimChanged);
+            animControl.PlayAnim("stand", AnimWrapMode.Loop);
+        }
+
+        private void OnAnimChanged(string orignValue, string newValue)
+        {
+            animControl.PlayAnim(newValue, AnimWrapMode.Loop);
         }
 
         protected override void OnRegisteEvent(Eventer eventer)
         {
             eventer.RegisteEvent<IE_MovePos>( OnBeginWalk );
+            eventer.RegisteEvent<IE_ArriveTarget>(OnArriveTarget);
+        }
+
+        private void OnArriveTarget(IE_ArriveTarget obj)
+        {
+            currentAnim.SetValue("stand");
         }
 
         protected override void OnRegisteGameLoopEvent(GameLoopTrigger trigger)
@@ -25,7 +39,7 @@ namespace PuppetBehaviours
 
         private void OnBeginWalk(IE_MovePos obj)
         {
-            animControl.PlayAnim("walk");
+            currentAnim.SetValue( "walk");
         }
     }
 }

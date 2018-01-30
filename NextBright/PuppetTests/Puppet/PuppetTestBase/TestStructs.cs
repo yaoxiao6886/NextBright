@@ -12,6 +12,7 @@ namespace PuppetTests.Puppet.PuppetTestBase
     {
         public TestPosControl pos = new TestPosControl();
         public TestAnimControl anim = new TestAnimControl();
+        public TestRotationControl rot = new TestRotationControl();
 
         public IAnimControl GetAnimControl()
         {
@@ -21,6 +22,11 @@ namespace PuppetTests.Puppet.PuppetTestBase
         public IPosControl GetPosControl()
         {
             return pos;
+        }
+
+        public IRotationControl GetRotationControl()
+        {
+            return rot;
         }
     }
 }

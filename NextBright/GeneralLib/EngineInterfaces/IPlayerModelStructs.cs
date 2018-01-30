@@ -11,5 +11,7 @@ namespace PuppetBehaviours
         IPosControl GetPosControl();
 
         IAnimControl GetAnimControl();
+
+        IRotationControl GetRotationControl();
     }
 }

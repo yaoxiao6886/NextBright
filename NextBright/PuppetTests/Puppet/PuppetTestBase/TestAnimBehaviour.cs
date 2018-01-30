@@ -1,4 +1,5 @@
 ﻿using PuppetBehaviours;
+using RPGLogicBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace PuppetTests.Puppet.PuppetTestBase
     class TestAnimControl : IAnimControl
     {
         public string orderedName = "";
-        public void PlayAnim(string animName)
+        public void PlayAnim(string animName, AnimWrapMode mode)
         {
             orderedName = animName;
         }

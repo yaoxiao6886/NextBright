@@ -19,6 +19,7 @@ namespace PuppetBehaviours
         {
             dict.Add(DimentionEnum.POS, new PlayerPosBehaviour(modelStruct.GetPosControl()));
             dict.Add(DimentionEnum.ANIM, new PlayerAnimBehaviour(modelStruct.GetAnimControl()));
+            dict.Add(DimentionEnum.ROT, new PlayerRotationBehaviour(modelStruct.GetRotationControl()));
         }
     }
 }

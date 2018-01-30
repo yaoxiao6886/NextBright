@@ -25,7 +25,7 @@ namespace PuppetBehaviours.Tests
         public void InitData()
         {
             stru = new TestStructs();
-            player = PlayerFactory.CreateRPGPlayer(stru);
+            player = PlayerCreateHelper.CreateRPGPlayer(stru);
         }
         #endregion
         

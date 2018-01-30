@@ -1,5 +1,4 @@
-﻿using RPGBaseData;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +10,7 @@ namespace PuppetBehaviours
     /// Facade Pattern, 注意: 这个跟Factory Method和Abstract Factory没有关系
     /// 事实上, 木偶的创建用了Builder模式, 详见Director和Builder
     /// </summary>
-    public  class PlayerFactory
+    public  class PlayerCreateHelper
     {
         /// <summary>
         /// 生成RPG游戏中正常的玩家

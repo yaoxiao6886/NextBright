@@ -1,5 +1,4 @@
 ﻿using PuppetBehaviours;
-using RPGBaseData;
 using RPGBaseTests.Tests;
 using RPGLogicBase;
 using System;

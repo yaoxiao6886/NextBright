@@ -1,8 +1,10 @@
-﻿namespace PuppetBehaviours
+﻿using RPGLogicBase;
+
+namespace PuppetBehaviours
 {
     public interface IAnimControl
     {
-        void PlayAnim(string animName);
+        void PlayAnim(string animName, AnimWrapMode mode);
 
     }
 }

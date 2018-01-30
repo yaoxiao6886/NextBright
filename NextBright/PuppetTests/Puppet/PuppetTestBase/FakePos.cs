@@ -1,4 +1,5 @@
-﻿using RPGLogicBase;
+﻿using PuppetBehaviours;
+using RPGLogicBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;

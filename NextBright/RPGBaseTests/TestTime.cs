@@ -1,4 +1,4 @@
-﻿using RPGBaseData;
+﻿using RPGLogicBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +9,10 @@ namespace RPGBaseTests.Tests
 {
     public  class TestTime : Time
     {
+        public TestTime() {
+            pastedSeconds = 0;
+        }
+
         static float pastedSeconds = 0;
         public static void SetTimeAndUpdate(float second) {
             pastedSeconds = second;

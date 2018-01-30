@@ -17,7 +17,16 @@ namespace RPGLogicBase
     /// </summary>
     public abstract class GameLoopTrigger : Singleton<GameLoopTrigger>
     {
-        public abstract void RegisteUpdate(Action act, int time = 200);
+        /// <summary>
+        /// 注册Update事件
+        /// </summary>
+        /// <param name="act">回调行为</param>
+        /// <param name="millsecond">
+        /// 间隔, 0为每帧都调用
+        /// 为性能考虑, 默认为200ms, 也就是1s走5次
+        /// </param>
+        public abstract void RegisteUpdate(Action act, int millsecond = 200);
+        
         
     }
 }

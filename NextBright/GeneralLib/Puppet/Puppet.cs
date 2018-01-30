@@ -1,5 +1,4 @@
-﻿using RPGBaseData;
-using RPGLogicBase;
+﻿using RPGLogicBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +24,6 @@ namespace PuppetBehaviours
             this.behaviourList = list;
 
             RegisteEvents();
-
         }
 
         /// <summary>

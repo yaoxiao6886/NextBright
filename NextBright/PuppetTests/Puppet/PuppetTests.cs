@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using RPGLogicBase;
-using RPGBaseData;
 using PuppetTests.Puppet.PuppetTestBase;
 
 namespace PuppetBehaviours.Tests

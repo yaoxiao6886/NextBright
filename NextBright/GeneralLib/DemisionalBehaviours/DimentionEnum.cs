@@ -19,5 +19,6 @@ namespace PuppetBehaviours
         /// 动画
         /// </summary>
         ANIM,
+        ROT,
     }
 }

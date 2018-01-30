@@ -3,9 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProfilerImplementation : MonoBehaviour {
 
-    class Implementation : Profiler {
+    class ProfilerImplementation : Profiler {
         protected override void OnEndSample()
         {
             UnityEngine.Profiling.Profiler.EndSample();
@@ -16,17 +15,3 @@ public class ProfilerImplementation : MonoBehaviour {
             UnityEngine.Profiling.Profiler.BeginSample(name);
         }
     }
-
-
-    
-
-    // Use this for initialization
-    void Awake () {
-        Profiler.SetImplementation( new Implementation() );
-	}
-	
-
-	void Update () {
-		
-	}
-}

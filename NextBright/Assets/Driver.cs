@@ -1,44 +1,40 @@
 ﻿using PuppetBehaviours;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityConnectPlugin;
 using UnityEngine;
 
 public class Driver : MonoBehaviour {
     private Player player;
-    PlayerStructs playerStruct;
 
-    UpdateImplementation implementation = new UpdateImplementation();
-    TimeImplementation timeImplmentation = new TimeImplementation();
-    
-    float targetTime = 0;
+    public Transform PlayerTransform;
+    public Camera CameraTransform;
+        
+  
     void Start () {
-        playerStruct = GetComponent<PlayerStructs>();
-        player = PlayerFactory.CreateRPGPlayer(playerStruct); 
-        targetTime = Time.realtimeSinceStartup + Random.Range(0, 5f);
+        player = PlayerFactory.CreatePlayer(PlayerTransform);
+        player.SetPosChangedCallBack(OnPosChanged);
     }
 
-    // Update is called once per frame
-
+    private void OnPosChanged(RPGLogicBase.Vector2 obj)
+    {
+        CameraTransform.transform.position = PlayerTransform.position + new Vector3(10, 10, 10);
+    }
+    
     float x = 0;
     float y = 0;
     public float speed = 1;
 	void Update () {
 
-        if (Input.GetKey(KeyCode.W)) {
-            x += speed * Time.deltaTime;
-        } else if (Input.GetKey(KeyCode.S)) {
-            x -= speed * Time.deltaTime;
-        } else if (Input.GetKey(KeyCode.A)) {
-            y -= speed * Time.deltaTime;
-        } else if (Input.GetKey(KeyCode.D)) {
-            y += speed * Time.deltaTime;
-        }
+        if (Input.GetMouseButton(0)) {
+            Ray ray = CameraTransform.ScreenPointToRay(Input.mousePosition);
 
-        if (Time.realtimeSinceStartup > targetTime) {
-            targetTime = float.MaxValue;
-            playerStruct.animControl.SetAnim( transform.Find("bodyctrl").GetComponent<Animation>() );
+            RaycastHit hitInfo;
+            if (Physics.Raycast(ray, out hitInfo, 1000))
+            {
+                player.MoveTo(new RPGLogicBase.Vector2() { x = hitInfo.point.x, y = hitInfo.point.z });
+            }
         }
-
-        player.MoveTo(new RPGLogicBase.Vector2() { x =y, y = x });
     }
 }

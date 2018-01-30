@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using RPGBaseData;
+using RPGLogicBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
